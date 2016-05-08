@@ -1,0 +1,39 @@
+.quarter-button {
+	display: inline-block;
+}
+
+.top-left {
+    height: 250px;
+    width: 250px;
+    background: green;
+    border-radius: 250px 0 0 0;
+    -moz-border-radius: 250px 0 0 0;
+    -webkit-border-radius: 250px 0 0 0;
+}
+
+.top-right {
+    height: 250px;
+    width: 250px;
+    background: red;
+    border-radius: 0 250px 0 0;
+    -moz-border-radius: 0 250px 0 0;
+    -webkit-border-radius: 0 250px 0 0;
+}
+
+.btm-left {
+    height: 250px;
+    width: 250px;
+    background: yellow;
+    border-radius: 0 0 0 250px;
+    -moz-border-radius: 0 0 0 250px;
+    -webkit-border-radius: 0 0 0 250px;
+}
+
+.btm-right {
+    height: 250px;
+    width: 250px;
+    background: blue;
+    border-radius: 0 0 250px 0;
+    -moz-border-radius: 0 0 250px 0;
+    -webkit-border-radius: 0 0 250px 0;
+}
