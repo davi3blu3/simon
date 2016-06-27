@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    
     // CLICK EVENTS and COLOR CHANGES
     
 	function revertColor(el, color) {
@@ -36,7 +36,33 @@ $(document).ready(function() {
 		setTimeout(function(el, color) {
 			revertColor(el, color);
 		}, 500, this, original);
-	})			
+	})
+    
+    // GAME OBJECT
+    
+    function Simon() {
+        
+        this.simonPattern = []; // empty array for random computer pattern
+        this.userPattern = []; // empty array for user input
+        
+        // generate random integer from 0 - 3
+        this.randomColor = function() {
+            var random = Math.floor(Math.random() * 4);
+            return random;
+        }
+        
+        //
+        this.turn = function() {
+            this.simonPattern.push(this.randomColor());
+            return this.simonPattern;
+        }
+    }
+
+    var current = new Simon();
+    console.log(current.turn());
+    console.log(current.turn());
+    console.log(current.turn());
+    console.log(current.turn());
 
 
 
