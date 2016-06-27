@@ -1,19 +1,14 @@
 $(document).ready(function() {
     
     // COLOR CHANGE FUNCTIONS
-    function revertColor(el, color) {
-		$(el).css("background-color", color);
-	}
-    
+
     // CLICK EVENTS
     
-
-
 	$(".green").on("click", function() {
 		var original = $(this).css("background-color");
 		$(this).css("background-color", "lime");
-		setTimeout(function(el, color) {
-			revertColor(el, color);
+		setTimeout(function(el, original) {
+			$(el).css("background-color", original);
 		}, 500, this, original);
 	})
 
@@ -21,7 +16,7 @@ $(document).ready(function() {
 		var original = $(this).css("background-color");
 		$(this).css("background-color", "red");
 		setTimeout(function(el, color) {
-			revertColor(el, color);
+			$(el).css("background-color", original);
 		}, 500, this, original);
 	})
 
@@ -29,15 +24,15 @@ $(document).ready(function() {
 		var original = $(this).css("background-color");
 		$(this).css("background-color", "yellow");
 		setTimeout(function(el, color) {
-			revertColor(el, color);
+			$(el).css("background-color", original);
 		}, 500, this, original);
 	})
 
 	$(".blue").on("click", function() {
 		var original = $(this).css("background-color");
 		$(this).css("background-color", "blue");
-		setTimeout(function(el, color) {
-			revertColor(el, color);
+		setTimeout(function(el, original) {
+			$(el).css("background-color", original);
 		}, 500, this, original);
 	})
     
