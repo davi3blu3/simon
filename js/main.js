@@ -1,12 +1,15 @@
 $(document).ready(function() {
     
-    // CLICK EVENTS and COLOR CHANGES
-    
-	function revertColor(el, color) {
+    // COLOR CHANGE FUNCTIONS
+    function revertColor(el, color) {
 		$(el).css("background-color", color);
 	}
+    
+    // CLICK EVENTS
+    
 
-	$(".top-left").on("click", function() {
+
+	$(".green").on("click", function() {
 		var original = $(this).css("background-color");
 		$(this).css("background-color", "lime");
 		setTimeout(function(el, color) {
@@ -14,7 +17,7 @@ $(document).ready(function() {
 		}, 500, this, original);
 	})
 
-	$(".top-right").on("click", function() {
+	$(".red").on("click", function() {
 		var original = $(this).css("background-color");
 		$(this).css("background-color", "red");
 		setTimeout(function(el, color) {
@@ -22,7 +25,7 @@ $(document).ready(function() {
 		}, 500, this, original);
 	})
 
-	$(".btm-left").on("click", function() {
+	$(".yellow").on("click", function() {
 		var original = $(this).css("background-color");
 		$(this).css("background-color", "yellow");
 		setTimeout(function(el, color) {
@@ -30,7 +33,7 @@ $(document).ready(function() {
 		}, 500, this, original);
 	})
 
-	$(".btm-right").on("click", function() {
+	$(".blue").on("click", function() {
 		var original = $(this).css("background-color");
 		$(this).css("background-color", "blue");
 		setTimeout(function(el, color) {
@@ -51,19 +54,17 @@ $(document).ready(function() {
             return random;
         }
         
-        //
+        // simon's turn triggering animation
         this.turn = function() {
             this.simonPattern.push(this.randomColor());
-            return this.simonPattern;
+            var testPatter = [1, 3, 0, 2, 1, 1, 2, 3, 0];
+            
+            // return this.simonPattern;
         }
     }
 
     var current = new Simon();
-    console.log(current.turn());
-    console.log(current.turn());
-    console.log(current.turn());
-    console.log(current.turn());
-
+    // console.log(current.turn());
 
 
 })

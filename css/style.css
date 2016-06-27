@@ -17,7 +17,7 @@ body {
 	display: inline-block;
 }
 
-.top-left {
+.green {
     height: 250px;
     width: 250px;
     background-color: green;
@@ -26,7 +26,7 @@ body {
     -webkit-border-radius: 250px 0 0 0;
 }
 
-.top-right {
+.red {
     height: 250px;
     width: 250px;
     background-color: #C60000;
@@ -35,7 +35,7 @@ body {
     -webkit-border-radius: 0 250px 0 0;
 }
 
-.btm-left {
+.yellow {
     height: 250px;
     width: 250px;
     background-color: #E0CC00;
@@ -44,7 +44,7 @@ body {
     -webkit-border-radius: 0 0 0 250px;
 }
 
-.btm-right {
+.blue {
     height: 250px;
     width: 250px;
     background-color: #1507A3;
