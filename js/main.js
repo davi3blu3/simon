@@ -1,5 +1,8 @@
 $(document).ready(function() {
     
+    //Global Variables
+    var flashCounter = 0;
+    
     // COLOR CHANGE FUNCTIONS
     function colorChange(element, newColor) {
         var original = $(element).css("background-color");
@@ -26,27 +29,43 @@ $(document).ready(function() {
         }
     }
     
+    function wrongMove() {
+        flashCounter += 1;        
+        var flash = setInterval(function(){ redFlash() }, 30);
+
+        function redFlash() {
+            ($('body').css("background-color") === 'rgb(51, 51, 51)') ? $('body').css("background-color", "red") : $('body').css("background-color", "#333");
+            flashCounter += 1;
+            
+            if (flashCounter == 9) {
+                stopFlash();
+            }
+        }
+        function stopFlash() {
+            clearInterval(flash);
+        }
+    }
     
     // CLICK EVENTS
     
 	$(".green").on("click", function() {
         colorChange(this, "lime");
-        current.userPattern.push(0);
+        current.userTurn(0);
 	})
 
 	$(".red").on("click", function() {
         colorChange(this, "red");
-        current.userPattern.push(1);
+        current.userTurn(1);
 	})
 
 	$(".yellow").on("click", function() {
         colorChange(this, "yellow");
-        current.userPattern.push(2);
+        current.userTurn(2);
 	})
 
 	$(".blue").on("click", function() {
         colorChange(this, "blue");
-        current.userPattern.push(3);
+        current.userTurn(3);
 	})
     
     // GAME OBJECT
@@ -61,12 +80,13 @@ $(document).ready(function() {
             var random = Math.floor(Math.random() * 4);
             return random;
         }
-        
-
+        this.userTurn = function(num) {
+            this.userPattern.push(num);
+            console.log(this.userPattern);
+        }
     }
 
     
-    // console.log(current.turn());
     
     // PSEUDO CODE GAME FLOW
     // Create new game object
@@ -75,26 +95,15 @@ $(document).ready(function() {
     
     // Generate one random number, add to simonPattern
     current.simonPattern.push(current.randomInt());
-    current.simonPattern.push(current.randomInt());
-    current.simonPattern.push(current.randomInt());
-    current.simonPattern.push(current.randomInt());
-    current.simonPattern.push(current.randomInt());
-    current.simonPattern.push(current.randomInt());
-    current.simonPattern.push(current.randomInt());
+
     
-    // Trigger timed color changes according to simonPattern
-//    current.simonPattern.forEach(function(number) {
-//        setTimeout(function(number) {
-//			playPattern(number);
-//		}, 2000, number);
-//    });
-    
+    // Trigger timed color changes according to simonPattern    
     current.simonPattern.forEach(function(number, index) {
         setTimeout(playPattern.bind(null, number), index*1000);
     });
     // Wait for user input
     // User clicks checked against simonPattern, pushed to userPatter
     
-
+    wrongMove();
 
 })
