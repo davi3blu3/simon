@@ -1,39 +1,31 @@
 $(document).ready(function() {
     
     // COLOR CHANGE FUNCTIONS
-
+    function colorChange(element, newColor) {
+        var original = $(element).css("background-color");
+		$(element).css("background-color", newColor);
+		setTimeout(function(el, original) {
+			$(el).css("background-color", original);
+		}, 500, element, original);
+    }
+    
+    
     // CLICK EVENTS
     
 	$(".green").on("click", function() {
-		var original = $(this).css("background-color");
-		$(this).css("background-color", "lime");
-		setTimeout(function(el, original) {
-			$(el).css("background-color", original);
-		}, 500, this, original);
+        colorChange(this, "lime");
 	})
 
 	$(".red").on("click", function() {
-		var original = $(this).css("background-color");
-		$(this).css("background-color", "red");
-		setTimeout(function(el, color) {
-			$(el).css("background-color", original);
-		}, 500, this, original);
+        colorChange(this, "red");
 	})
 
 	$(".yellow").on("click", function() {
-		var original = $(this).css("background-color");
-		$(this).css("background-color", "yellow");
-		setTimeout(function(el, color) {
-			$(el).css("background-color", original);
-		}, 500, this, original);
+        colorChange(this, "yellow");
 	})
 
 	$(".blue").on("click", function() {
-		var original = $(this).css("background-color");
-		$(this).css("background-color", "blue");
-		setTimeout(function(el, original) {
-			$(el).css("background-color", original);
-		}, 500, this, original);
+        colorChange(this, "blue");
 	})
     
     // GAME OBJECT
@@ -44,15 +36,15 @@ $(document).ready(function() {
         this.userPattern = []; // empty array for user input
         
         // generate random integer from 0 - 3
-        this.randomColor = function() {
+        this.randomInt = function() {
             var random = Math.floor(Math.random() * 4);
             return random;
         }
         
         // simon's turn triggering animation
         this.turn = function() {
-            this.simonPattern.push(this.randomColor());
-            var testPatter = [1, 3, 0, 2, 1, 1, 2, 3, 0];
+            this.simonPattern.push(this.randomInt());
+            var testPattern = [1, 3, 0, 2, 1, 1, 2, 3, 0];
             
             // return this.simonPattern;
         }
