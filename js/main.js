@@ -37,7 +37,7 @@ $(document).ready(function() {
             ($('body').css("background-color") === 'rgb(51, 51, 51)') ? $('body').css("background-color", "red") : $('body').css("background-color", "#333");
             flashCounter += 1;
             
-            if (flashCounter == 9) {
+            if (flashCounter <= 9) {
                 stopFlash();
             }
         }
@@ -50,22 +50,22 @@ $(document).ready(function() {
     
 	$(".green").on("click", function() {
         colorChange(this, "lime");
-        current.userTurn(0);
+        current.userMove(0);
 	})
 
 	$(".red").on("click", function() {
         colorChange(this, "red");
-        current.userTurn(1);
+        current.userMove(1);
 	})
 
 	$(".yellow").on("click", function() {
         colorChange(this, "yellow");
-        current.userTurn(2);
+        current.userMove(2);
 	})
 
 	$(".blue").on("click", function() {
         colorChange(this, "blue");
-        current.userTurn(3);
+        current.userMove(3);
 	})
     
     // GAME OBJECT
@@ -80,9 +80,32 @@ $(document).ready(function() {
             var random = Math.floor(Math.random() * 4);
             return random;
         }
-        this.userTurn = function(num) {
+        this.userMove = function(num) {
             this.userPattern.push(num);
-            console.log(this.userPattern);
+            if (this.userPattern.length === this.simonPattern.length) {
+                for (i = 0; i < this.userPattern.length; i++) {
+                    if (this.userPattern[i] !== this.simonPattern[i]) {
+                        console.log("wrong!");
+                        return wrongMove();
+                    }
+                }
+                console.log("correct!");
+                this.userPattern = [];
+                this.compMove();
+            }
+        }
+        
+        this.compMove = function() {
+            // 2. Generate one random number, add to simonPattern
+            this.simonPattern.push(this.randomInt());
+            console.log(this.simonPattern);
+
+
+            // 3. Trigger timed color changes according to simonPattern    
+            this.simonPattern.forEach(function(number, index) {
+                setTimeout(playPattern.bind(null, number), index*1000);
+            });
+            // Wait for user input
         }
     }
 
@@ -92,18 +115,14 @@ $(document).ready(function() {
     // Create new game object
     var current = new Simon(),
         i;
+    // 1. Start Simon sequence
+    current.compMove();
     
-    // Generate one random number, add to simonPattern
-    current.simonPattern.push(current.randomInt());
+    
 
-    
-    // Trigger timed color changes according to simonPattern    
-    current.simonPattern.forEach(function(number, index) {
-        setTimeout(playPattern.bind(null, number), index*1000);
-    });
-    // Wait for user input
+    // see current.userMove();
     // User clicks checked against simonPattern, pushed to userPatter
     
-    wrongMove();
+    // wrongMove();
 
 })
