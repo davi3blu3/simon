@@ -20,7 +20,7 @@ body {
 .green {
     height: 250px;
     width: 250px;
-    background-color: green;
+    background-color: #090;
     border-radius: 250px 0 0 0;
     -moz-border-radius: 250px 0 0 0;
     -webkit-border-radius: 250px 0 0 0;
@@ -29,7 +29,7 @@ body {
 .red {
     height: 250px;
     width: 250px;
-    background-color: #C60000;
+    background-color: #900;
     border-radius: 0 250px 0 0;
     -moz-border-radius: 0 250px 0 0;
     -webkit-border-radius: 0 250px 0 0;
@@ -38,7 +38,7 @@ body {
 .yellow {
     height: 250px;
     width: 250px;
-    background-color: #E0CC00;
+    background-color: #990;
     border-radius: 0 0 0 250px;
     -moz-border-radius: 0 0 0 250px;
     -webkit-border-radius: 0 0 0 250px;
@@ -47,7 +47,7 @@ body {
 .blue {
     height: 250px;
     width: 250px;
-    background-color: #1507A3;
+    background-color: #009;
     border-radius: 0 0 250px 0;
     -moz-border-radius: 0 0 250px 0;
     -webkit-border-radius: 0 0 250px 0;

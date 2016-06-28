@@ -15,16 +15,16 @@ $(document).ready(function() {
     function playPattern(num) {
         switch (num) {
             case 0:
-                colorChange($(".green"), "lime");
+                colorChange($(".green"), "#0f0");
                 break;
             case 1:
-                colorChange($(".red"), "red");
+                colorChange($(".red"), "#f00");
                 break;
             case 2:
-                colorChange($(".yellow"), "yellow");
+                colorChange($(".yellow"), "#ff0");
                 break;
             case 3:
-                colorChange($(".blue"), "blue");
+                colorChange($(".blue"), "#00f");
                 break;
         }
     }
@@ -49,22 +49,22 @@ $(document).ready(function() {
     // CLICK EVENTS
     
 	$(".green").on("click", function() {
-        colorChange(this, "lime");
+        colorChange(this, "#0f0");
         current.userMove(0);
 	})
 
 	$(".red").on("click", function() {
-        colorChange(this, "red");
+        colorChange(this, "#f00");
         current.userMove(1);
 	})
 
 	$(".yellow").on("click", function() {
-        colorChange(this, "yellow");
+        colorChange(this, "#ff0");
         current.userMove(2);
 	})
 
 	$(".blue").on("click", function() {
-        colorChange(this, "blue");
+        colorChange(this, "#00f");
         current.userMove(3);
 	})
     
@@ -86,7 +86,7 @@ $(document).ready(function() {
                 for (i = 0; i < this.userPattern.length; i++) {
                     if (this.userPattern[i] !== this.simonPattern[i]) {
                         console.log("wrong!");
-                        return wrongMove();
+                        //return wrongMove();
                     }
                 }
                 console.log("correct!");
