@@ -1,5 +1,5 @@
 body {
-    background: #333;
+    background: #000;
     text-align: center;
 }
 
@@ -74,8 +74,9 @@ body {
     }
     
     .controls {
-        height: 40vw;
-        width: 40vw;
+        height: 55vw;
+        width: 55vw;
+        border-radius: 55vw;
     }    
 }
 
@@ -110,7 +111,8 @@ body {
     }
 
     .controls {
-        height: 40vh;
-        width: 40vh;
+        height: 55vh;
+        width: 55vh;
+        border-radius: 55vw;
     }    
 }
