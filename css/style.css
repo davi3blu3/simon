@@ -12,6 +12,7 @@ body {
 
 .container {
     position: relative;
+    margin: 0 auto;
 }
 
 .game-button {
@@ -37,11 +38,9 @@ body {
 .controls {
     position: absolute;
     background-color: #000;
-    height: 40vw;
-    width: 40vw;
-    margin-left: auto;
-    margin-right: auto;
-
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }
 
 @media all and (orientation: portrait) {
@@ -73,6 +72,11 @@ body {
         -moz-border-radius: 0 0 45vw 0;
         -webkit-border-radius: 0 0 45vw 0;
     }
+    
+    .controls {
+        height: 40vw;
+        width: 40vw;
+    }    
 }
 
 @media all and (orientation: landscape) {
@@ -104,4 +108,9 @@ body {
         -moz-border-radius: 0 0 45vh 0;
         -webkit-border-radius: 0 0 45vh 0;
     }
+
+    .controls {
+        height: 40vh;
+        width: 40vh;
+    }    
 }
