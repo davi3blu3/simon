@@ -15,16 +15,16 @@ $(document).ready(function() {
     function playPattern(num) {
         switch (num) {
             case 0:
-                colorChange($(".green"), "#0f0");
+                colorChange($(".green-btn"), "#0f0");
                 break;
             case 1:
-                colorChange($(".red"), "#f00");
+                colorChange($(".red-btn"), "#f00");
                 break;
             case 2:
-                colorChange($(".yellow"), "#ff0");
+                colorChange($(".yellow-btn"), "#ff0");
                 break;
             case 3:
-                colorChange($(".blue"), "#00f");
+                colorChange($(".blue-btn"), "#00f");
                 break;
         }
     }
@@ -48,22 +48,22 @@ $(document).ready(function() {
     
     // CLICK EVENTS
     
-	$(".green").on("click", function() {
+	$(".green-btn").on("click", function() {
         colorChange(this, "#0f0");
         current.userMove(0);
 	})
 
-	$(".red").on("click", function() {
+	$(".red-btn").on("click", function() {
         colorChange(this, "#f00");
         current.userMove(1);
 	})
 
-	$(".yellow").on("click", function() {
+	$(".yellow-btn").on("click", function() {
         colorChange(this, "#ff0");
         current.userMove(2);
 	})
 
-	$(".blue").on("click", function() {
+	$(".blue-btn").on("click", function() {
         colorChange(this, "#00f");
         current.userMove(3);
 	})
