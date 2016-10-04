@@ -12,12 +12,15 @@
     <body>
 
     <div class="container">
-        <div class="controls">
-            <h1>SIMON</h1>
-            <h2>Round:</h2>
-            <div class="round-counter">50</div>
-            <button>New Game</button>
-            <input type="checkbox" name="strict">Strict Mode<br>
+        <div class="inner-circle">
+            <h1 class="game-title">simon</h1>
+            <div class="game-controls">
+                <div class="round-counter">00</div>
+                <button class="new-btn">reset</button>              
+            </div>
+            <div>
+                <input class="strict-switch" type="checkbox" name="strict">Strict<br> 
+            </div> 
         </div><!-- controls -->
 
         <div class="row">
@@ -32,6 +35,6 @@
 
 
         <script src="js/jquery-1.12.0.min.js"></script>
-        <script src="js/main.js"></script>
+        <!-- <script src="js/main.js"></script> -->
     </body>
 </html>

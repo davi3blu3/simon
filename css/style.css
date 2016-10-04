@@ -1,14 +1,13 @@
 body {
     background: #000;
     text-align: center;
+    font-family: verdana, sans-serif;
 }
 
-/*.banner {
-    color: white;
-    font-family: sans-serif;
-    font-size: 60px;
+.game-title {
+    font-size: 2.4rem;
+    margin-bottom: .4rem;
 }
-*/
 
 .container {
     position: relative;
@@ -17,6 +16,10 @@ body {
 
 .game-button {
 	display: inline-block;
+}
+
+.game-controls {
+    vertical-align: top;
 }
 
 .green-btn {
@@ -35,23 +38,44 @@ body {
     background-color: #009;
 }
 
-.controls {
+.new-btn {
+    vertical-align: top;
+    background-color: white;
+    color: black;
+    font-size: 1.25rem;
+    line-height: 1.9rem; 
+}
+
+.strict-switch:after {
+    /* DOES THIS EVEN WORK AT ALL? */
+}
+
+input[type="checkbox"]:after {
+
+}
+
+.inner-circle {
     position: absolute;
-    background-color: #eee;
-    border: solid #000 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #000;
+    color: #eee;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
 }
 
 .round-counter {
-    background-color: black;
     color: red;
-    font-size: 30px;
-    line-height: 40px;
-    width: 40px;
-    height: 40px;
+    padding: 0 .2rem;
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+/*    width: 2.2rem;*/
+    height: 2.2rem;
+    border: 1px solid #ccc;
     margin: 0 auto;
+    display: inline-block;
 }
 
 @media all and (orientation: portrait) {
@@ -84,7 +108,7 @@ body {
         -webkit-border-radius: 0 0 45vw 0;
     }
     
-    .controls {
+    .inner-circle {
         height: 55vw;
         width: 55vw;
         border-radius: 55vw;
@@ -121,7 +145,7 @@ body {
         -webkit-border-radius: 0 0 45vh 0;
     }
 
-    .controls {
+    .inner-circle {
         height: 55vh;
         width: 55vh;
         border-radius: 55vw;
