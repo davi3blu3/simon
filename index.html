@@ -15,26 +15,28 @@
         <div class="inner-circle">
             <h1 class="game-title">simon</h1>
             <div class="game-controls">
-                <div class="round-counter">00</div>
-                <button class="control-btn">reset</button>              
+                <div id="counter" class="round-counter">00</div>
+                <button id="reset" class="control-btn">reset</button>              
             </div>
             <div>
-                <button class="control-btn">strict mode</button> 
+                <button id="strict" class="control-btn">strict mode</button> 
             </div> 
         </div><!-- controls -->
 
         <div class="row">
-            <div class="green-btn game-button"></div>
-            <div class="red-btn game-button"></div>
+            <div id="green" class="green-btn game-button"></div>
+            <div id="red" class="red-btn game-button"></div>
         </div><!-- row -->
         <div class="row"></div>
-            <div class="yellow-btn game-button"></div>
-            <div class="blue-btn game-button"></div>
+            <div id="yellow" class="yellow-btn game-button"></div>
+            <div id="blue" class="blue-btn game-button"></div>
         </div><!-- row -->
     </div><!-- container -->
 
 
-        <script src="js/jquery-1.12.0.min.js"></script>
-         <script src="js/SimonGame.js"></script>
+    <!--<script src="js/jquery-1.12.0.min.js"></script>-->
+    <script src="js/DOMHandler.js"></script>
+    <script src="js/SimonGame.js"></script>
+    <script src="js/gameButtons.js"></script>
     </body>
 </html>
