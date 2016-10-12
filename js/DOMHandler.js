@@ -15,16 +15,16 @@ var updateTurn = function(round) {
 
 // set event listeners - game buttons
 greenBtn.addEventListener("click", function() {
-    playerInput("green");
+    SimonGame.playerInput(greenBtn);
 });
 redBtn.addEventListener("click", function() {
-    playerInput("red");
+    SimonGame.playerInput(redBtn);
 });
 yellowBtn.addEventListener("click", function() {
-    playerInput("yellow");
+    SimonGame.playerInput(yellowBtn);
 });
 blueBtn.addEventListener("click", function() {
-    playerInput("blue");
+    SimonGame.playerInput(blueBtn);
 });
 
 // set event listeners - game controls
