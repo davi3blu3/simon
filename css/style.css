@@ -23,19 +23,19 @@ body {
 }
 
 .green-btn {
-    background-color: #090;
+    background-color: rgb(0, 155, 0);
 }
 
 .red-btn {
-    background-color: #900;
+    background-color: rgb(155, 0, 0);
 }
 
 .yellow-btn {
-    background-color: #990;
+    background-color: rgb(155, 155, 0);
 }
 
 .blue-btn {
-    background-color: #009;
+    background-color: rgb(0, 0, 155);
 }
 
 .control-btn {
