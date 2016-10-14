@@ -2,6 +2,12 @@ var SimonGame = function(game) {
     game.darkRgb;
     game.brightRgb;
 
+    game.greenTone = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");
+    game.redTone = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
+    game.yellowTone = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
+    game.blueTone = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");
+
+
     game.setColors = function(el) {
         // set dark color
         darkRgb = window.getComputedStyle(el).getPropertyValue("background-color");
@@ -27,7 +33,6 @@ var SimonGame = function(game) {
     };
 
     game.colorChange = function(el, color) {
-        console.log(el, color);
         el.style.backgroundColor = color;
     };
 
@@ -38,6 +43,9 @@ var SimonGame = function(game) {
 
         // change color to bright
         game.colorChange(el, colors[0]);
+
+        // trigger audio
+        game[el.id + "Tone"].play();
 
         // change color to dark after pause
         setTimeout(function(){
