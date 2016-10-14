@@ -4,6 +4,8 @@ var redBtn = document.getElementById("red");
 var yellowBtn = document.getElementById("yellow");
 var blueBtn = document.getElementById("blue");
 
+var clickEnabled = true;
+
 // references to game controls
 var roundCounter = document.getElementById("counter");
 var resetBtn = document.getElementById("reset");
@@ -15,16 +17,30 @@ var updateTurn = function(round) {
 
 // set event listeners - game buttons
 greenBtn.addEventListener("click", function() {
-    SimonGame.playerInput(greenBtn);
+    if (clickEnabled) {
+        SimonGame.playerInput(greenBtn);
+        clickEnabled = false;
+    }
 });
 redBtn.addEventListener("click", function() {
-    SimonGame.playerInput(redBtn);
+    if (clickEnabled) {
+        SimonGame.playerInput(redBtn);
+        clickEnabled = false;
+    }
 });
 yellowBtn.addEventListener("click", function() {
-    SimonGame.playerInput(yellowBtn);
+    if (clickEnabled) {
+        SimonGame.playerInput(yellowBtn);
+        clickEnabled = false;
+    }
+    
 });
 blueBtn.addEventListener("click", function() {
-    SimonGame.playerInput(blueBtn);
+    if (clickEnabled) {
+        SimonGame.playerInput(blueBtn);
+        clickEnabled = false;
+    }
+    
 });
 
 // set event listeners - game controls

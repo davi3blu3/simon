@@ -32,6 +32,7 @@ var SimonGame = function(game) {
     };
 
     game.playerInput = function(el) {
+
         // set light and dark colors
         var colors = game.setColors(el);
 
@@ -41,8 +42,8 @@ var SimonGame = function(game) {
         // change color to dark after pause
         setTimeout(function(){
             game.colorChange(el, colors[1])
-        }, 500);
-        
+            clickEnabled = true;
+        }, 500);        
     };
 
     return game;
