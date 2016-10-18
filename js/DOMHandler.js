@@ -8,7 +8,7 @@ var clickEnabled = true;
 
 // references to game controls
 var roundCounter = document.getElementById("counter");
-var resetBtn = document.getElementById("reset");
+var startBtn = document.getElementById("start");
 var strictBtn = document.getElementById("strict");
 
 var updateTurn = function(round) {
@@ -44,9 +44,10 @@ blueBtn.addEventListener("click", function() {
 });
 
 // set event listeners - game controls
-resetBtn.addEventListener("click", function() {
-    // handle reset
+startBtn.addEventListener("click", function() {
+    // handle start
+    SimonGame.computersTurn(0);
 });
 strictBtn.addEventListener("click", function() {
-    // handle reset
+    // handle strict mode
 });

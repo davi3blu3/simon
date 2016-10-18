@@ -11,10 +11,40 @@ var SimonGame = function() {
         },
         computersTurn: function(turnNumber) {
             // update round counter
+            turnNumber += 1;
+            roundCounter.innerHTML = (turnNumber < 10 ? '0' : '') + turnNumber;
+
             // disable user clicks
+            clickEnabled = false;
+
             // pick random number 0 - 3
+            var rand = Math.floor(Math.random() * 4);
+
             // add to computer sequence
+            computerSequence.push(rand);
+
             // play computer sequence
+            for (i = 0; i < computerSequence.length; i++) {
+                setTimeout(function(){
+                    switch (rand) {
+                        case 0:
+                            SimonGame.compInput(greenBtn);
+                            break;
+                        case 1:
+                            SimonGame.compInput(redBtn);
+                            break;
+                        case 2:
+                            SimonGame.compInput(yellowBtn);
+                            break;
+                        case 3:
+                            SimonGame.compInput(blueBtn);
+                            break;
+                    }
+                }, 500);  
+
+
+            }
+
             // enable user clicks
         },
         playersInput: function(buttonPressed) {
