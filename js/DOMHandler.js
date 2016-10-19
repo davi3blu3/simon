@@ -46,6 +46,7 @@ blueBtn.addEventListener("click", function() {
 // set event listeners - game controls
 startBtn.addEventListener("click", function() {
     // handle start
+    SimonGame.resetGame();
     SimonGame.computersTurn(0);
 });
 strictBtn.addEventListener("click", function() {

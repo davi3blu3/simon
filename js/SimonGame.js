@@ -25,6 +25,7 @@ var SimonGame = function() {
 
             // play computer sequence
             for (i = 0; i < computerSequence.length; i++) {
+                console.log("i", i);
                 setTimeout(function(){
                     switch (rand) {
                         case 0:
@@ -40,12 +41,13 @@ var SimonGame = function() {
                             SimonGame.compInput(blueBtn);
                             break;
                     }
-                }, 500);  
+                }, 600);  
 
 
             }
 
             // enable user clicks
+            
         },
         playersInput: function(buttonPressed) {
             // add to player sequence
