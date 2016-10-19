@@ -3,13 +3,15 @@ var SimonGame = function() {
     var computerSequence = [];
     var playerSequence = [];
     var strictMode = false;
+    var turnNumber = 0;
 
     return {
         resetGame: function() {
             computerSequence = [];
             playerSequence = [];
+            turnNumber = 0;
         },
-        computersTurn: function(turnNumber) {
+        computersTurn: function() {
             // update round counter
             turnNumber += 1;
             roundCounter.innerHTML = (turnNumber < 10 ? '0' : '') + turnNumber;
@@ -46,16 +48,27 @@ var SimonGame = function() {
             // enable user clicks
             clickEnabled = true;
         },
-        playerInput: function(buttonPressed) {
+        playerInput: function(buttonPressed, number) {
             // add to player sequence
+            playerSequence.push(number);
             // get player sequence length, compare move to computer sequence at same index
-            // if correct
-                // check computer sequence length, determine if turn over
-                // if so, computers turn
-            // else
-                // play wrong note / warning color
-                // check if strict mode
-                // reset game
+            if (computerSequence.length >= playerSequence) {
+                for (i = 0; i < playerSequence.length; i++) {
+                    // if correct
+                    if (playerSequence[i] === computerSequence[i]) {
+                        SimonGame.playerMove(buttonPressed);
+                        // check computer sequence length, determine if turn over
+                        // if so, computers turn
+                    } else {
+                        // play wrong note / warning color
+                        var body = document.getElementById('body');
+                        body.style.background("red");
+                        // check if strict mode
+                        // reset game
+                    }
+                }
+                SimonGame.computersTurn();
+            }
         }
     };
 
