@@ -18,26 +18,26 @@ var updateTurn = function(round) {
 // set event listeners - game buttons
 greenBtn.addEventListener("click", function() {
     if (clickEnabled) {
-        SimonGame.playerInput(greenBtn);
+        SimonGame.playerInput(greenBtn, 0);
         clickEnabled = false;
     }
 });
 redBtn.addEventListener("click", function() {
     if (clickEnabled) {
-        SimonGame.playerInput(redBtn);
+        SimonGame.playerInput(redBtn, 1);
         clickEnabled = false;
     }
 });
 yellowBtn.addEventListener("click", function() {
     if (clickEnabled) {
-        SimonGame.playerInput(yellowBtn);
+        SimonGame.playerInput(yellowBtn, 2);
         clickEnabled = false;
     }
     
 });
 blueBtn.addEventListener("click", function() {
     if (clickEnabled) {
-        SimonGame.playerInput(blueBtn);
+        SimonGame.playerInput(blueBtn, 3);
         clickEnabled = false;
     }
     

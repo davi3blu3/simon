@@ -38,7 +38,7 @@ var SimonGame = function(game) {
         el.style.backgroundColor = color;
     };
 
-    game.playerInput = function(el) {
+    game.playerMove = function(el) {
         // set light and dark colors
         var colors = game.setColors(el);
 

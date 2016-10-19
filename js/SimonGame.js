@@ -42,14 +42,11 @@ var SimonGame = function() {
                             break;
                     }
                 }, 600);  
-
-
-            }
-
+            };
             // enable user clicks
-            
+            clickEnabled = true;
         },
-        playersInput: function(buttonPressed) {
+        playerInput: function(buttonPressed) {
             // add to player sequence
             // get player sequence length, compare move to computer sequence at same index
             // if correct
