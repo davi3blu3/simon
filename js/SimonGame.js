@@ -61,13 +61,17 @@ var SimonGame = function() {
                         // if so, computers turn
                     } else {
                         // play wrong note / warning color
-                        var body = document.getElementById('body');
-                        body.style.background("red");
+                        document.body.style.backgroundColor = "red";
+                        setTimeout(function(){
+                            document.body.style.backgroundColor = "#000";
+                        }, 250); 
                         // check if strict mode
                         // reset game
+                        break;
                     }
                 }
-                SimonGame.computersTurn();
+                // start next turn
+                // SimonGame.computersTurn();
             }
         }
     };
