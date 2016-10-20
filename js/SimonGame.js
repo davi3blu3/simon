@@ -31,16 +31,16 @@ var SimonGame = function() {
                 setTimeout(function(){
                     switch (rand) {
                         case 0:
-                            SimonGame.compInput(greenBtn);
+                            SimonGame.lightSound(greenBtn);
                             break;
                         case 1:
-                            SimonGame.compInput(redBtn);
+                            SimonGame.lightSound(redBtn);
                             break;
                         case 2:
-                            SimonGame.compInput(yellowBtn);
+                            SimonGame.lightSound(yellowBtn);
                             break;
                         case 3:
-                            SimonGame.compInput(blueBtn);
+                            SimonGame.lightSound(blueBtn);
                             break;
                     }
                 }, 600);  
@@ -56,7 +56,7 @@ var SimonGame = function() {
                 for (i = 0; i < playerSequence.length; i++) {
                     // if correct
                     if (playerSequence[i] === computerSequence[i]) {
-                        SimonGame.playerMove(buttonPressed);
+                        SimonGame.lightSound(buttonPressed);
                         // check computer sequence length, determine if turn over
                         // if so, computers turn
                     } else {
@@ -76,4 +76,4 @@ var SimonGame = function() {
         }
     };
 
-}(SimonGame || {});
+}();

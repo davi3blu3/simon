@@ -1,10 +1,18 @@
+var SimonGame = function(game) {
+
+
+    return game;
+
+}(SimonGame || {});
+
+// boolean to disable click
+var clickEnabled = true;
+
 // references to game buttons
 var greenBtn = document.getElementById("green");
 var redBtn = document.getElementById("red");
 var yellowBtn = document.getElementById("yellow");
 var blueBtn = document.getElementById("blue");
-
-var clickEnabled = true;
 
 // references to game controls
 var roundCounter = document.getElementById("counter");
@@ -19,18 +27,21 @@ var updateTurn = function(round) {
 greenBtn.addEventListener("click", function() {
     if (clickEnabled) {
         SimonGame.playerInput(greenBtn, 0);
+        //SimonGame.lightSound(greenBtn);
         clickEnabled = false;
     }
 });
 redBtn.addEventListener("click", function() {
     if (clickEnabled) {
         SimonGame.playerInput(redBtn, 1);
+        //SimonGame.lightSound(redBtn);
         clickEnabled = false;
     }
 });
 yellowBtn.addEventListener("click", function() {
     if (clickEnabled) {
         SimonGame.playerInput(yellowBtn, 2);
+        //SimonGame.lightSound(yellowBtn);
         clickEnabled = false;
     }
     
@@ -38,6 +49,7 @@ yellowBtn.addEventListener("click", function() {
 blueBtn.addEventListener("click", function() {
     if (clickEnabled) {
         SimonGame.playerInput(blueBtn, 3);
+        //SimonGame.lightSound(blueBtn);
         clickEnabled = false;
     }
     
