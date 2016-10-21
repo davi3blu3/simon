@@ -14,10 +14,10 @@ var SimonGame = function() {
         computersTurn: function() {
             // update round counter
             turnNumber += 1;
-            roundCounter.innerHTML = (turnNumber < 10 ? '0' : '') + turnNumber;
+            SimonGame.roundCounter.innerHTML = (turnNumber < 10 ? '0' : '') + turnNumber;
 
             // disable user clicks
-            clickEnabled = false;
+            SimonGame.clickEnabled = false;
 
             // pick random number 0 - 3
             var rand = Math.floor(Math.random() * 4);
@@ -31,28 +31,28 @@ var SimonGame = function() {
                 setTimeout(function(){
                     switch (rand) {
                         case 0:
-                            SimonGame.lightSound(greenBtn);
+                            SimonGame.lightSound(SimonGame.greenBtn);
                             break;
                         case 1:
-                            SimonGame.lightSound(redBtn);
+                            SimonGame.lightSound(SimonGame.redBtn);
                             break;
                         case 2:
-                            SimonGame.lightSound(yellowBtn);
+                            SimonGame.lightSound(SimonGame.yellowBtn);
                             break;
                         case 3:
-                            SimonGame.lightSound(blueBtn);
+                            SimonGame.lightSound(SimonGame.blueBtn);
                             break;
                     }
                 }, 600);  
             };
             // enable user clicks
-            clickEnabled = true;
+            SimonGame.clickEnabled = true;
         },
         playerInput: function(buttonPressed, number) {
             // add to player sequence
             playerSequence.push(number);
             // get player sequence length, compare move to computer sequence at same index
-            if (computerSequence.length >= playerSequence) {
+            if (computerSequence.length >= playerSequence.length) {
                 for (i = 0; i < playerSequence.length; i++) {
                     // if correct
                     if (playerSequence[i] === computerSequence[i]) {

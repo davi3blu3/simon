@@ -53,26 +53,9 @@ var SimonGame = function(game) {
         // change color to dark after pause
         setTimeout(function(){
             game.colorChange(el, colors[1])
-            clickEnabled = true;
+            game.clickEnabled = true;
         }, 500);        
     };
-
-    game.compInput = function(el) {
-        // set light and dark colors
-        var colors = game.setColors(el);
-
-        // change color to bright
-        game.colorChange(el, colors[0]);
-
-        // trigger audio
-        game[el.id + "Tone"].play();
-
-        // change color to dark after pause
-        setTimeout(function(){
-            game.colorChange(el, colors[1])
-            clickEnabled = true;
-        }, 500);        
-    };    
 
     return game;
 
