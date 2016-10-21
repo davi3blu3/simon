@@ -31,8 +31,6 @@ var SimonGame = function(game) {
         }
         // set light color
         brightRgb = "rgb(" + newRgbArr.join(", ") + ")";
-        console.log("bright ", brightRgb);
-        console.log("dark ", darkRgb);
         return [brightRgb, darkRgb];
     };
 

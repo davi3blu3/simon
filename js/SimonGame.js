@@ -12,6 +12,7 @@ var SimonGame = function() {
             turnNumber = 0;
         },
         computersTurn: function() {
+            console.log("now computer's turn");
             // update round counter
             turnNumber += 1;
             SimonGame.roundCounter.innerHTML = (turnNumber < 10 ? '0' : '') + turnNumber;
@@ -24,23 +25,27 @@ var SimonGame = function() {
 
             // add to computer sequence
             computerSequence.push(rand);
+            console.log("computer sequence", computerSequence);
 
             // play computer sequence
             for (i = 0; i < computerSequence.length; i++) {
-                console.log("i", i);
                 setTimeout(function(){
                     switch (rand) {
                         case 0:
                             SimonGame.lightSound(SimonGame.greenBtn);
+                            console.log("computer: green");
                             break;
                         case 1:
                             SimonGame.lightSound(SimonGame.redBtn);
+                            console.log("computer: red");
                             break;
                         case 2:
                             SimonGame.lightSound(SimonGame.yellowBtn);
+                            console.log("computer: yellow");
                             break;
                         case 3:
                             SimonGame.lightSound(SimonGame.blueBtn);
+                            console.log("computer: blue");
                             break;
                     }
                 }, 600);  
@@ -71,7 +76,7 @@ var SimonGame = function() {
                     }
                 }
                 // start next turn
-                // SimonGame.computersTurn();
+                SimonGame.computersTurn();
             }
         }
     };
