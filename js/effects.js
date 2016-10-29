@@ -24,7 +24,7 @@ var SimonGame = function(game) {
         for (i = 0; i < rgbBreakdown.length; i ++) {
             var newInt = parseInt(rgbBreakdown[i]);
             if (newInt > 0) {
-                newRgbArr.push(newInt + 100);
+                newRgbArr.push(255);
             } else {
                 newRgbArr.push(newInt);
             }

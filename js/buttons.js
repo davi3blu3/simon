@@ -20,36 +20,36 @@ var SimonGame = function(game) {
 
     // set event listeners - game buttons
     game.greenBtn.addEventListener("click", function() {
-        console.log("Green button clicked!");
+        //test: console.log("Green button clicked!");
         if (game.clickEnabled) {
-            console.log("Green button enabled!");
+            //test: console.log("Green button enabled!");
             game.playerInput(game.greenBtn, 0);
             //SimonGame.lightSound(greenBtn);
             game.clickEnabled = false;
         }
     });
     game.redBtn.addEventListener("click", function() {
-        console.log("Red button clicked!");
+        //test: console.log("Red button clicked!");
         if (game.clickEnabled) {
-            console.log("Red button enabled!");
+            //test: console.log("Red button enabled!");
             game.playerInput(game.redBtn, 1);
             //SimonGame.lightSound(redBtn);
             game.clickEnabled = false;
         }
     });
     game.yellowBtn.addEventListener("click", function() {
-        console.log("Yellow button clicked!");
+        //test: console.log("Yellow button clicked!");
         if (game.clickEnabled) {
-            console.log("Yellow button enabled!");
+            //test: console.log("Yellow button enabled!");
             game.playerInput(game.yellowBtn, 2);
             //SimonGame.lightSound(yellowBtn);
             game.clickEnabled = false;
         }
     });
     game.blueBtn.addEventListener("click", function() {
-        console.log("Blue button clicked!");
+        //test: console.log("Blue button clicked!");
         if (game.clickEnabled) {
-            console.log("Blue button enabled!");
+            //test: console.log("Blue button enabled!");
             game.playerInput(game.blueBtn, 3);
             //SimonGame.lightSound(blueBtn);
             game.clickEnabled = false;
