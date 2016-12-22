@@ -1,4 +1,4 @@
-var order = ['red', 'red', 'green', 'yellow', 'red', 'blue', 'blue', 'green', 'red', 'yellow', 'yellow'];
+var order = ['red', 'red'];
 var iteration = 0;
 var runSequence = function() {
     setTimeout(function() {
@@ -8,7 +8,29 @@ var runSequence = function() {
             runSequence();
         }
     }, 800)
+}
 
+// add new random tone to sequence
+var randNew = function() {
+    // generate random number 1 - 4
+    var rand = Math.ceil(Math.random() * 4);
+    
+    switch(rand) {
+        case 1:
+            order.push('green');
+            break;
+        case 2:
+            order.push('red');
+            break;
+        case 3:
+            order.push('yellow');
+            break;
+        case 4:
+            order.push('blue');
+            break;
+        default:
+            break;
+    }
 }
 
 // button sound and color change
@@ -32,5 +54,9 @@ gameButtons.forEach(button => button.addEventListener('click', function() {
 
 const startButton = document.querySelector('#start');
 startButton.addEventListener('click', function() {
+    iteration = 0;
     runSequence();
+
+    //just for testing
+    randNew();
 })
