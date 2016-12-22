@@ -1,8 +1,9 @@
 // add playing and remove playing
 var play = function(btn) {
-    console.log(btn);
     btn.classList.add('playing');
-    console.log(btn);
+    setTimeout(function() {
+        btn.classList.remove('playing');
+    }, 500);
 }
 
 
