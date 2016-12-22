@@ -16,7 +16,6 @@ body {
 
 .game-button {
 	display: inline-block;
-    transition: all 0.5s;
 }
 
 .game-controls {
@@ -26,34 +25,31 @@ body {
 .green-btn {
     background-color: rgb(0, 155, 0);
 }
-.green-btn .playing {
+div.green-btn.playing {
     background-color: rgb(0, 255, 0);
 }
 
 .red-btn {
     background-color: rgb(155, 0, 0);
 }
-.red-btn .playing {
+div.red-btn.playing {
     background-color: rgb(255, 0, 0);
 }
 
 .yellow-btn {
     background-color: rgb(155, 155, 0);
 }
-.yellow-btn .playing {
+div.yellow-btn.playing {
     background-color: rgb(255, 255, 0);
 }
 
 .blue-btn {
     background-color: rgb(0, 0, 155);
 }
-.blue-btn .playing {
+div.blue-btn.playing {
     background-color: rgb(0, 0, 255) !important;
 }
 
-.playing {
-    transform: scale(1.2);
-}
 
 .control-btn {
     vertical-align: top;
