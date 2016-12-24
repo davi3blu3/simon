@@ -1,6 +1,16 @@
+const gameButtons = document.querySelectorAll('.game-button');
+const startButton = document.querySelector('#start');
+const turnCounter = document.querySelector('#counter');
 var simonSequence = [];
 var iteration = 0;
-var runSequence = function() {
+
+// add click event listeners
+gameButtons.forEach(button => button.addEventListener('click', function() {
+    play(this);
+}))
+
+// play simon sequence
+const runSequence = function() {
     play(document.querySelector('#' + simonSequence[iteration]));
     setTimeout(function() {
         iteration++;
@@ -11,11 +21,8 @@ var runSequence = function() {
 }
 
 // add new random tone to sequence
-var randomNewTone = function() {
-    // generate random number 1 - 4
+const randomNewTone = function() {
     var rand = Math.ceil(Math.random() * 4);
-    
-    // push new color to sequence
     switch(rand) {
         case 1:
             simonSequence.push('green');
@@ -34,7 +41,7 @@ var randomNewTone = function() {
     }
 }
 
-// button sound and color change
+// change sound and color of button
 var play = function(btn) {
     // change color
     btn.classList.add('playing');
@@ -54,16 +61,7 @@ var counterUpdate = function() {
     turnCounter.innerHTML = newRound.length > 1 ? newRound : '0' + newRound;
 }
 
-// add click event listeners
-const gameButtons = document.querySelectorAll('.game-button');
-gameButtons.forEach(button => button.addEventListener('click', function() {
-    play(this);
-}))
-
-const startButton = document.querySelector('#start');
-const turnCounter = document.querySelector('#counter');
-
-// this will later be replaces with a turn function, and start will trigger a new game
+// this will later be replaced with a turn function, and start will trigger a new game
 startButton.addEventListener('click', function() {
     iteration = 0;
     counterUpdate();
