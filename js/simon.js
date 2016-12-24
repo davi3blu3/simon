@@ -1,32 +1,33 @@
-var order = ['red', 'red'];
+var simonSequence = [];
 var iteration = 0;
 var runSequence = function() {
+    play(document.querySelector('#' + simonSequence[iteration]));
     setTimeout(function() {
-        play(document.querySelector('#' + order[iteration]));
         iteration++;
-        if (iteration < order.length) {
+        if (iteration < simonSequence.length) {
             runSequence();
         }
     }, 800)
 }
 
 // add new random tone to sequence
-var randNew = function() {
+var randomNewTone = function() {
     // generate random number 1 - 4
     var rand = Math.ceil(Math.random() * 4);
     
+    // push new color to sequence
     switch(rand) {
         case 1:
-            order.push('green');
+            simonSequence.push('green');
             break;
         case 2:
-            order.push('red');
+            simonSequence.push('red');
             break;
         case 3:
-            order.push('yellow');
+            simonSequence.push('yellow');
             break;
         case 4:
-            order.push('blue');
+            simonSequence.push('blue');
             break;
         default:
             break;
@@ -55,8 +56,8 @@ gameButtons.forEach(button => button.addEventListener('click', function() {
 const startButton = document.querySelector('#start');
 startButton.addEventListener('click', function() {
     iteration = 0;
+    randomNewTone();
     runSequence();
 
-    //just for testing
-    randNew();
+
 })
