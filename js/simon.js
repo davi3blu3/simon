@@ -47,6 +47,13 @@ var play = function(btn) {
     }, 500);
 }
 
+// update round counter
+var counterUpdate = function() {
+    var currentRound = turnCounter.innerHTML
+    var newRound = (parseInt(currentRound) + 1).toString();
+    turnCounter.innerHTML = newRound.length > 1 ? newRound : '0' + newRound;
+}
+
 // add click event listeners
 const gameButtons = document.querySelectorAll('.game-button');
 gameButtons.forEach(button => button.addEventListener('click', function() {
@@ -59,7 +66,7 @@ const turnCounter = document.querySelector('#counter');
 // this will later be replaces with a turn function, and start will trigger a new game
 startButton.addEventListener('click', function() {
     iteration = 0;
-    turnCounter.innerHTML = parseInt(turnCounter.innerHTML) + 1;
+    counterUpdate();
     randomNewTone();
     runSequence();
 })
