@@ -54,10 +54,12 @@ gameButtons.forEach(button => button.addEventListener('click', function() {
 }))
 
 const startButton = document.querySelector('#start');
+const turnCounter = document.querySelector('#counter');
+
+// this will later be replaces with a turn function, and start will trigger a new game
 startButton.addEventListener('click', function() {
     iteration = 0;
+    turnCounter.innerHTML = parseInt(turnCounter.innerHTML) + 1;
     randomNewTone();
     runSequence();
-
-
 })
