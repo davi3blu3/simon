@@ -2,11 +2,12 @@ const gameButtons = document.querySelectorAll('.game-button');
 const startButton = document.querySelector('#start');
 const turnCounter = document.querySelector('#counter');
 var simonSequence = [];
+var playerSequence = [];
 var iteration = 0;
 
 // add click event listeners
 gameButtons.forEach(button => button.addEventListener('click', function() {
-    play(this);
+    playerClick(this);
 }))
 
 // play simon sequence
@@ -18,6 +19,18 @@ const runSequence = function() {
             runSequence();
         }
     }, 800)
+}
+
+// handle player click input
+const playerClick = function (this) {
+    // push move to player sequence
+    // compare player sequence so far to simon sequence
+    // if correct
+        // color and sound response to click
+        play(this);
+    // else
+        // play error tone? visual?
+    // if player sequence length == simon sequence length and was correct, trigger new round
 }
 
 // add new random tone to sequence
