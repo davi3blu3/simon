@@ -52,7 +52,7 @@ const wrongPress = function() {
 }
 
 // handle player click input
-const playerClick = function (button) {
+const playerClick = function(button) {
     // push move to player sequence
     playerSequence.push(button.id);
 
@@ -60,12 +60,23 @@ const playerClick = function (button) {
     console.log('player', playerSequence);
     console.log('computer', simonSequence);
     // if correct
+    if (compareInput()) {
         // color and sound response to click
-        // playBtn(this);
-    // else
-        // play error tone? visual?
-        // wrongPress();
+        playBtn(button);
+    } else {
+        wrongPress();
+    }
     // if player sequence length == simon sequence length and was correct, trigger new round
+}
+
+const compareInput = function() {
+    // return boolean if matching so far, up to length of player input
+    for (i = 0; i < playerSequence.length; i++) {
+        if (playerSequence[i] !== simonSequence[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 // add new random tone to sequence
