@@ -39,19 +39,32 @@ const runSequence = function() {
 const wrongPress = function() {
     const bkgd = document.querySelector('body');
 
-    setTimeout(function() {
-        bkgd.classList.add('wrong');
-    }, 0)
-    bkgd.classList.add('wrong');
-    setTimeout(function() {
-        bkgd.classList.remove('wrong');
-    }, 80)
-    setTimeout(function() {
-        bkgd.classList.add('wrong');
-    }, 160)
-    setTimeout(function() {
-        bkgd.classList.remove('wrong');
-    }, 240)   
+    // setTimeout(function() {
+    //     bkgd.classList.add('wrong');
+    // }, 0)
+
+    // setTimeout(function() {
+    //     bkgd.classList.remove('wrong');
+    // }, 80)
+
+    // setTimeout(function() {
+    //     bkgd.classList.add('wrong');
+    // }, 160)
+
+    // setTimeout(function() {
+    //     bkgd.classList.remove('wrong');
+    // }, 240)
+
+    function doSetTimeout(i) {
+        setTimeout(function() {
+            i % 2 == 0 ? bkgd.classList.add('wrong') : bkgd.classList.remove('wrong');
+        }, (i * 80))
+    }
+
+    for (i = 0; i < 4; i++) {
+        doSetTimeout(i);
+    }      
+
 }
 
 // handle player click input
