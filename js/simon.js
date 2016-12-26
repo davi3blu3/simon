@@ -65,6 +65,8 @@ const playerClick = function(button) {
         playBtn(button);
     } else {
         wrongPress();
+        var errTone = document.querySelector('audio[data-key="error"]');
+        errTone.play();
     }
     // if player sequence length == simon sequence length and was correct, trigger new round
 }
