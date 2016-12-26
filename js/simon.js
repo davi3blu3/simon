@@ -1,5 +1,6 @@
 const gameButtons = document.querySelectorAll('.game-button');
 const startButton = document.querySelector('#start');
+const strictButton = document.querySelector('#strict');
 const turnCounter = document.querySelector('#counter');
 var simonSequence = [];
 var playerSequence = [];
@@ -9,6 +10,19 @@ var iteration = 0;
 gameButtons.forEach(button => button.addEventListener('click', function() {
     playerClick(this);
 }))
+
+// this will later be replaced with a turn function, and start will trigger a new game
+startButton.addEventListener('click', function() {
+    iteration = 0;
+    counterUpdate();
+    randomNewTone();
+    runSequence();
+})
+
+// later be changed to enable strict mode
+strictButton.addEventListener('click', function() {
+    wrongPress();
+})
 
 // play simon sequence
 const runSequence = function() {
@@ -21,8 +35,27 @@ const runSequence = function() {
     }, 800)
 }
 
+// on wrong key press event, error tone & visual
+const wrongPress = function() {
+    const bkgd = document.querySelector('body');
+
+    setTimeout(function() {
+        bkgd.classList.add('wrong');
+    }, 0)
+    bkgd.classList.add('wrong');
+    setTimeout(function() {
+        bkgd.classList.remove('wrong');
+    }, 80)
+    setTimeout(function() {
+        bkgd.classList.add('wrong');
+    }, 160)
+    setTimeout(function() {
+        bkgd.classList.remove('wrong');
+    }, 240)   
+}
+
 // handle player click input
-const playerClick = function (this) {
+const playerClick = function (/*this*/) {
     // push move to player sequence
     // compare player sequence so far to simon sequence
     // if correct
@@ -30,6 +63,7 @@ const playerClick = function (this) {
         play(this);
     // else
         // play error tone? visual?
+        wrongPress();
     // if player sequence length == simon sequence length and was correct, trigger new round
 }
 
@@ -74,10 +108,3 @@ var counterUpdate = function() {
     turnCounter.innerHTML = newRound.length > 1 ? newRound : '0' + newRound;
 }
 
-// this will later be replaced with a turn function, and start will trigger a new game
-startButton.addEventListener('click', function() {
-    iteration = 0;
-    counterUpdate();
-    randomNewTone();
-    runSequence();
-})

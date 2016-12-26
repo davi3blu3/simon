@@ -4,6 +4,10 @@ body {
     font-family: verdana, sans-serif;
 }
 
+body.wrong {
+    background: rgb(255,0,0);
+}
+
 .game-title {
     font-size: 2.4rem;
     margin-bottom: .4rem;
