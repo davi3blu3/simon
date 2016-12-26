@@ -26,34 +26,19 @@ strictButton.addEventListener('click', function() {
 
 // play simon sequence
 const runSequence = function() {
-    play(document.querySelector('#' + simonSequence[iteration]));
+    playBtn(document.querySelector('#' + simonSequence[iteration]));
     setTimeout(function() {
         iteration++;
         if (iteration < simonSequence.length) {
             runSequence();
         }
     }, 800)
+    playerSequence = [];
 }
 
 // on wrong key press event, error tone & visual
 const wrongPress = function() {
     const bkgd = document.querySelector('body');
-
-    // setTimeout(function() {
-    //     bkgd.classList.add('wrong');
-    // }, 0)
-
-    // setTimeout(function() {
-    //     bkgd.classList.remove('wrong');
-    // }, 80)
-
-    // setTimeout(function() {
-    //     bkgd.classList.add('wrong');
-    // }, 160)
-
-    // setTimeout(function() {
-    //     bkgd.classList.remove('wrong');
-    // }, 240)
 
     function doSetTimeout(i) {
         setTimeout(function() {
@@ -64,19 +49,22 @@ const wrongPress = function() {
     for (i = 0; i < 4; i++) {
         doSetTimeout(i);
     }      
-
 }
 
 // handle player click input
-const playerClick = function (/*this*/) {
+const playerClick = function (button) {
     // push move to player sequence
+    playerSequence.push(button.id);
+
     // compare player sequence so far to simon sequence
+    console.log('player', playerSequence);
+    console.log('computer', simonSequence);
     // if correct
         // color and sound response to click
-        play(this);
+        // playBtn(this);
     // else
         // play error tone? visual?
-        wrongPress();
+        // wrongPress();
     // if player sequence length == simon sequence length and was correct, trigger new round
 }
 
@@ -102,7 +90,7 @@ const randomNewTone = function() {
 }
 
 // change sound and color of button
-var play = function(btn) {
+var playBtn = function(btn) {
     // change color
     btn.classList.add('playing');
     // play tone
