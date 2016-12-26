@@ -14,16 +14,22 @@ gameButtons.forEach(button => button.addEventListener('click', function() {
 
 // this will later be replaced with a turn function, and start will trigger a new game
 startButton.addEventListener('click', function() {
-    iteration = 0;
-    counterUpdate();
-    randomNewTone();
-    runSequence();
+    newTurn();
 })
 
 // later be changed to enable strict mode
 strictButton.addEventListener('click', function() {
     wrongPress();
 })
+
+// new turn
+const newTurn = function() {
+    iteration = 0;
+    counterUpdate();
+    randomNewTone();
+    runSequence();
+    playerSequence = [];
+}
 
 // play simon sequence
 const runSequence = function() {
@@ -34,7 +40,6 @@ const runSequence = function() {
             runSequence();
         }
     }, 800)
-    playerSequence = [];
 }
 
 // on wrong key press event, error tone & visual
@@ -60,9 +65,14 @@ const playerClick = function(button) {
     // compare player sequence so far to simon sequence
     console.log('player', playerSequence);
     console.log('computer', simonSequence);
-    // if correct
-    if (compareInput()) {
-        // color and sound response to click
+    // if correct and turn finished
+    if (compareInput() && playerSequence.length === simonSequence.length) {
+        playBtn(button);
+        setTimeout(function() {
+            newTurn();
+        }, 1000)
+    // if correct and more to go
+    } else if (compareInput()){
         playBtn(button);
     } else {
         wrongPress();
