@@ -2,6 +2,7 @@ const gameButtons = document.querySelectorAll('.game-button');
 const startButton = document.querySelector('#start');
 const strictButton = document.querySelector('#strict');
 const turnCounter = document.querySelector('#counter');
+const errTone = document.querySelector('audio[data-key="error"]');
 var simonSequence = [];
 var playerSequence = [];
 var iteration = 0;
@@ -65,8 +66,8 @@ const playerClick = function(button) {
         playBtn(button);
     } else {
         wrongPress();
-        var errTone = document.querySelector('audio[data-key="error"]');
         errTone.play();
+        // after error, start round over, or start game over, depending on strict setting
     }
     // if player sequence length == simon sequence length and was correct, trigger new round
 }
@@ -81,25 +82,11 @@ const compareInput = function() {
     return true;
 }
 
-// add new random tone to sequence
+// add random new tone to sequence
 const randomNewTone = function() {
-    var rand = Math.ceil(Math.random() * 4);
-    switch(rand) {
-        case 1:
-            simonSequence.push('green');
-            break;
-        case 2:
-            simonSequence.push('red');
-            break;
-        case 3:
-            simonSequence.push('yellow');
-            break;
-        case 4:
-            simonSequence.push('blue');
-            break;
-        default:
-            break;
-    }
+    const tones = ['green', 'red', 'yellow', 'blue'];
+    var rand = Math.floor(Math.random() * 4);
+    simonSequence.push(tones[rand]);
 }
 
 // change sound and color of button
