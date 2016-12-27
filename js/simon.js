@@ -6,23 +6,14 @@ const errTone = document.querySelector('audio[data-key="error"]');
 var simonSequence = [];
 var playerSequence = [];
 var iteration = 0;
+var isStrict = false;
 
-// add click event listeners
-gameButtons.forEach(button => button.addEventListener('click', function() {
-    playerClick(this);
-}))
-
-// this will later be replaced with a turn function, and start will trigger a new game
-startButton.addEventListener('click', function() {
+//newGame
+const newGame = function() {
     simonSequence = [];
     turnCounter.innerHTML = '00';
     newTurn();
-})
-
-// later be changed to enable strict mode
-strictButton.addEventListener('click', function() {
-    wrongPress();
-})
+}
 
 // new turn
 const newTurn = function() {
@@ -57,12 +48,16 @@ const wrongPress = function() {
     for (i = 0; i < 4; i++) {
         doSetTimeout(i);
     }
-
-    setTimeout(function() {
-        iteration = 0;
-        playerSequence = [];
-        runSequence();
-    }, 1200)
+    if (isStrict) {
+        newGame();
+    } else {
+        // replay current turn without adding new tone
+        setTimeout(function() {
+            iteration = 0;
+            playerSequence = [];
+            runSequence();
+        }, 1200)
+    }
 }
 
 // handle player click input
@@ -70,10 +65,7 @@ const playerClick = function(button) {
     // push move to player sequence
     playerSequence.push(button.id);
 
-    // compare player sequence so far to simon sequence
-    console.log('player', playerSequence);
-    console.log('computer', simonSequence);
-    // if correct and turn finished
+    // compare player sequence to simon sequence: if correct and turn finished
     if (compareInput() && playerSequence.length === simonSequence.length) {
         playBtn(button);
         setTimeout(function() {
@@ -82,12 +74,11 @@ const playerClick = function(button) {
     // if correct and more to go
     } else if (compareInput()){
         playBtn(button);
+    // if wrong button pressed
     } else {
         wrongPress();
         errTone.play();
-        // after error, start round over, or start game over, depending on strict setting
     }
-    // if player sequence length == simon sequence length and was correct, trigger new round
 }
 
 const compareInput = function() {
@@ -127,3 +118,19 @@ var counterUpdate = function() {
     turnCounter.innerHTML = newRound.length > 1 ? newRound : '0' + newRound;
 }
 
+/* 
+*   EVENT LISTENERS
+*/
+
+// add click event listeners
+gameButtons.forEach(button => button.addEventListener('click', function() {
+    playerClick(this);
+}))
+
+// this will later be replaced with a turn function, and start will trigger a new game
+startButton.addEventListener('click', newGame)
+
+// later be changed to enable strict mode
+strictButton.addEventListener('click', function() {
+    wrongPress();
+})
