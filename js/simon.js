@@ -14,6 +14,8 @@ gameButtons.forEach(button => button.addEventListener('click', function() {
 
 // this will later be replaced with a turn function, and start will trigger a new game
 startButton.addEventListener('click', function() {
+    simonSequence = [];
+    turnCounter.innerHTML = '00';
     newTurn();
 })
 
