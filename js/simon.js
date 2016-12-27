@@ -56,7 +56,13 @@ const wrongPress = function() {
 
     for (i = 0; i < 4; i++) {
         doSetTimeout(i);
-    }      
+    }
+
+    setTimeout(function() {
+        iteration = 0;
+        playerSequence = [];
+        runSequence();
+    }, 1200)
 }
 
 // handle player click input
