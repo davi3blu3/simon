@@ -50,16 +50,18 @@ const wrongPress = function() {
     for (i = 0; i < 4; i++) {
         doSetTimeout(i);
     }
-    if (isStrict) {
-        newGame();
-    } else {
-        // replay current turn without adding new tone
-        setTimeout(function() {
+
+    setTimeout(function() {
+        if (isStrict) {
+            newGame();
+        } else {
+            // replay current turn without adding new tone
             iteration = 0;
             playerSequence = [];
             runSequence();
-        }, 1200)
-    }
+        }
+    }, 1200)
+
 }
 
 // handle player click input
