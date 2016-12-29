@@ -39,6 +39,8 @@ const runSequence = function() {
 const wrongPress = function() {
     const bkgd = document.querySelector('body');
 
+    errTone.play();
+
     function doSetTimeout(i) {
         setTimeout(function() {
             i % 2 == 0 ? bkgd.classList.add('wrong') : bkgd.classList.remove('wrong');
@@ -77,7 +79,6 @@ const playerClick = function(button) {
     // if wrong button pressed
     } else {
         wrongPress();
-        errTone.play();
     }
 }
 
@@ -132,5 +133,12 @@ startButton.addEventListener('click', newGame)
 
 // later be changed to enable strict mode
 strictButton.addEventListener('click', function() {
-    wrongPress();
+    if (isStrict) {
+        strictButton.classList.remove('strict-on');
+        isStrict = false;
+    } else {
+        strictButton.classList.add('strict-on');
+        isStrict = true;
+    }
+    
 })

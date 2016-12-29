@@ -63,9 +63,7 @@ body.wrong {
     margin-bottom: 10px;
 }
 
-.strict-mode-on {
-    font-size: 1.25rem;
-    line-height: 1.9rem;
+.strict-on {
     border: solid 2px blue; 
     color: blue;
 }
