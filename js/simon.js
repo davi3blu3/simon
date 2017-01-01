@@ -7,6 +7,7 @@ var simonSequence = [];
 var playerSequence = [];
 var iteration = 0;
 var isStrict = false;
+var clickEnabled = true;
 
 //newGame
 const newGame = function() {
@@ -138,7 +139,7 @@ var alertWin = function() {
 
 // add click event listeners
 gameButtons.forEach(button => button.addEventListener('click', function() {
-    playerClick(this);
+    if (clickEnabled){playerClick(this)};
 }))
 
 // this will later be replaced with a turn function, and start will trigger a new game
