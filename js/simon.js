@@ -19,11 +19,12 @@ const newGame = function() {
 // new turn
 const newTurn = function() {
     iteration = 0;
+    playerSequence = [];
     counterUpdate();
     randomNewTone();
+    clickEnabled = false;
     runSequence();
-    playerSequence = [];
-    console.log(simonSequence);
+
 }
 
 // play simon sequence
@@ -33,6 +34,9 @@ const runSequence = function() {
         iteration++;
         if (iteration < simonSequence.length) {
             runSequence();
+        } else {
+            console.log("click enabled");
+            clickEnabled = true;
         }
     }, 800)
 }
