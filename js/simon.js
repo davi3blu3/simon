@@ -22,6 +22,7 @@ const newTurn = function() {
     randomNewTone();
     runSequence();
     playerSequence = [];
+    console.log(simonSequence);
 }
 
 // play simon sequence
@@ -118,7 +119,17 @@ var playBtn = function(btn) {
 var counterUpdate = function() {
     var currentRound = turnCounter.innerHTML
     var newRound = (parseInt(currentRound) + 1).toString();
-    turnCounter.innerHTML = newRound.length > 1 ? newRound : '0' + newRound;
+    console.log('round', newRound);
+    if (parseInt(newRound) >= 21){
+        alertWin();
+    } else {
+        turnCounter.innerHTML = newRound.length > 1 ? newRound : '0' + newRound;
+    }
+}
+
+var alertWin = function() {
+    alert("20 Rounds! You win!");
+    newGame();
 }
 
 /* 
