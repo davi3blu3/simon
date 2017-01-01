@@ -130,10 +130,6 @@ body.wrong {
     }
 
     @media screen and (min-width: 450px) {
-
-        body {
-            background: green !important;
-        }
         .game-title {
             font-size: 2.4rem;
             margin-bottom: .4rem;
@@ -190,11 +186,7 @@ body.wrong {
         border-radius: 55vw;
     }
 
-    @media screen and (min-height: 400px) {
-
-        body {
-            background: green !important;
-        }
+    @media screen and (min-height: 450px) {
         .game-title {
             font-size: 2.4rem;
             margin-bottom: .4rem;
